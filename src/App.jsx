@@ -5,6 +5,12 @@ import './App.css'
 import Navbar from './Components/Navbar'
 import Homepage from './Pages/Homepage'
 import Sample from './Components/Sample'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Layout from './Components/Layout'
+import Products from './Components/Sample'
+import ProductCategories from './Pages/Product'
+import MultiProducts from './Pages/Multiproducts'
+import ProductDetails from './Pages/PruductDetails'
 
 function App() {
   const navbarRef = useRef(null);
@@ -27,9 +33,20 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <Homepage />
-      {/* <Sample /> */}
+       <BrowserRouter>
+       <Routes>
+
+        <Route  element={<Layout />}>
+          <Route path="/" element={<Homepage />} />ProductCategories
+          <Route path="/products" element={<ProductCategories />} />
+          <Route path="/multiproducts" element={<MultiProducts />} />
+          <Route path="/productdetails" element={<ProductDetails />} />
+          <Route path="/sample" element={<Products />} />
+        </Route>
+       </Routes>
+       
+       </BrowserRouter>
+      
       
     </>
   )

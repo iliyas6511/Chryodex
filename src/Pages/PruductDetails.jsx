@@ -504,7 +504,7 @@ const DownloadReports = () => {
 
 
 
-const Sample = () => {
+const ProductDetails = () => {
   return (
     <>
       <ProductDescription />
@@ -517,5 +517,5 @@ const Sample = () => {
   )
 }
 
-export default Sample
+export default ProductDetails
 

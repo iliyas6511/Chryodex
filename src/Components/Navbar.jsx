@@ -2,18 +2,19 @@ import React, { useEffect, useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
 import Logo from "../assets/Images/Chryodex.png";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [showTopbar, setShowTopbar] = useState(true);
 
     const navLinks = [
-        { name: "Home", href: "#" },
-        { name: "Company", href: "#" },
-        { name: "Products", href: "#" },
-        { name: "Resources", href: "#" },
-        { name: "Career", href: "#" },
-        { name: "Contact Us", href: "#" },
+        { name: "Home", to: "/" },
+        { name: "Company", to: "#" },
+        { name: "Products", to: "/products" },
+        { name: "Variety", to: "/multiproducts" },
+        { name: "Product Details", to: "/productdetails" },
+        { name: "Contact Us", to: "#" },
     ];
 
     useEffect(() => {
@@ -67,15 +68,17 @@ const Navbar = () => {
                     {/* Desktop Links */}
                     <div className="hidden md:flex items-center space-x-8">
                         {navLinks.map((link) => (
-                            <a
-                                key={link.name}
-                                href={link.href}
-                                className="relative text-gray-700 hover:text-secondary font-medium transition"
-                            >
-                                {link.name}
-                                {/* underline animation */}
-                                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-secondary transition-all duration-300 group-hover:w-full"></span>
-                            </a>
+                            <Link to={link.to}>
+                                <p
+                                    key={link.name}
+                                    href={link.href}
+                                    className="relative text-gray-700 hover:text-secondary font-medium transition"
+                                >
+                                    {link.name}
+                                    {/* underline animation */}
+                                    <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-secondary transition-all duration-300 group-hover:w-full"></span>
+                                </p>
+                            </Link>
                         ))}
                         <button className="relative overflow-hidden font-semibold px-5 py-2 rounded-full shadow-md border-2 border-secondary group">
                             {/* Text (always above background) */}
